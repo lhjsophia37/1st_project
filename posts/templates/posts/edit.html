@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+        <link rel="stylesheet" href="{% static 'posts/style.css' %}" type="text/css" />
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Edit Post</h1>
+        
+        {% if post.image %}
+            <div>
+                <img src="{{ post.image.url }}"></img>
+            </div>
+        {% endif %}
+        
+        <form action="{% url 'posts:update' post.id %}" method="POST">
+            {% csrf_token %}
+            
+            <h2>본 문</h2>
+            <textarea cols=40 rows=10 name="body">{{ post.body }}</textarea>
+            
+            <div class="form-group">
+                <label for="image">이미지</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            
+            <input type="submit" value="수정하기" />
+        </form>
+        
+        <a href="{% url 'posts:index' %}">목 록 </a><br>
+    </div>
+{% endblock %}

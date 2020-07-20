@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="{% static 'login/style.css' %}" type="text/css" />
+    </head>
+    
+    <body>
+        <h1>로그인</h1>
+        {% if logins %}
+            {% for login in logins %}
+                <p>
+                    ID : {{ login.identification }} <br>
+                    Password : {{ login.password }}
+                </p>
+            {% endfor %}
+        {% else %}
+                <p>Login Failed.</p>
+        {% endif %}
+        
+        
+        {% if logins %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>ID</th>
+                        <th>PASSWORD</th>
+                        <th>상세정보</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for login in logins %}
+                        <tr>
+                            <th>{{ login.id }}</th>
+                            <td>{{ login.identification }} </td>
+                            <td>{{ login.password }}</td>
+                            <td><a href="{% url 'login:detail' login.id %}">보기</a></td>
+                        </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Not Applicable.</p>
+        {% endif %}
+        
+        <a href = '../posts' class = posts>메인</a> <br>
+    </body>
+</html>

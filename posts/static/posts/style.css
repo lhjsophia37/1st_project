@@ -1,0 +1,10 @@
+h1 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: blue;
+    position: relative;
+    left: 20px;
+}
+
+.index {
+    font-family: 'Noto Sans KR', sans-serif;
+}

@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lotto</title>
+        <link rel="stylesheet" href="{% static 'lotto/style.css' %}" type="text/css" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    </head>
+    
+    <body>
+        <h1>로또번호 추첨기</h1>
+        <h2>로또 번호</h2>
+            
+        <div class='number'>
+            {% for number in numbers %}
+                    {{ number.n1 }}
+                    {{ number.n2 }}
+                    {{ number.n3 }}
+                    {{ number.n4 }}
+                    {{ number.n5 }}
+                    {{ number.n6 }}
+
+                
+            {% endfor %}
+        </div>
+        
+        <a class = "link" href = "../posts">메인</a>
+    </body>
+</html>
